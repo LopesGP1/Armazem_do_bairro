@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+
+<body>
+    <main>
+        <h1 class="titulo">Armazém do Bairro</h1>
+        <h2 class="subtitulo">Seja bem-vindo</h2>
+
+        <div class="imagem-casa">
+            <img src="{{ url_for('static', filename='img/casa.png') }}" alt="Casa">
+        </div>
+
+        <div class="botoes">
+    <a href="{{ url_for('cliente') }}" class="botao">Cliente</a>
+    <a href="{{ url_for('funcionario') }}" class="botao">Funcionário</a>
+    <a href="{{ url_for('gerente') }}" class="botao">Gerente/Adm</a>
+</div>
+    </main>
+
+    <!-- Div que cobre metade da tela -->
+
+</body>
+
+
+</html>

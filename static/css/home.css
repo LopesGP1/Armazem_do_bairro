@@ -1,0 +1,42 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #baebff, #1a66a8);
+}
+.botoes {
+    display: flex;
+    gap: 40px; /* espaço entre os botões */
+    margin-top: 20px; /* espaço entre a imagem e os botões */
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #0b2545;
+    color: #fff;
+    transition: all 0.3s ease; /* animação suave para hover */
+}
+
+/* Hover: aumenta o botão e escurece */
+.botao:hover {
+    background-color: #06172a;   /* mais escuro ao passar o mouse */
+    transform: scale(1.1);       /* aumenta 10% */
+}
+
+.botao {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #0b2545;  /* azul escuro */
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;       /* remove sublinhado do link */
+    font-size: 18px;
+    text-align: center;
+    transition: all 0.3s ease;  /* animação suave */
+}
