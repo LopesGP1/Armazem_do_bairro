@@ -7,6 +7,124 @@ html, body {
     background-color: #baebff;
 }
 
+.search-bar form {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+.search-bar input {
+    width: 100%;
+    padding: 6px 40px 6px 10px; /* espaço à direita para a lupa */
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.6);
+    color: white;
+    font-size: 16px;
+}
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button svg {
+    display: block;
+}
+
+.search-bar {
+    flex: 1 1 300px;       /* continua crescendo e encolhendo */
+    max-width: 500px;      /* largura máxima da barra */
+    margin: 0 20px;        /* mantém espaço entre título e ícones */
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 249, 249, 0);
+    color: white;
+    font-size: 16px;
+}
+
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+
+/* Garante que o header esteja acima de tudo */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+
+  background-color: rgba(92, 171, 218, 0.6);
+  color: white;
+  z-index: 10000;  /* aumenta o z-index para garantir que fique acima da hero */
+  backdrop-filter: blur(6px);
+}
+
+/* Título */
+.header h1 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+/* Navegação */
+.header nav {
+  display: flex;
+  align-items: center;
+}
+
+/* Hamburger */
+.header nav a.hamburger svg {
+    stroke: white;   /* força a cor do traço */
+    display: block;
+}
+
+/* Hover opcional */
+.header nav a.hamburger:hover svg {
+    stroke: #ff9800;
+}
+
+
+.header nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  display: flex;          /* garante que o svg fique alinhado */
+  align-items: center;
+  transition: 0.3s;
+}
+
+.header nav a svg {
+  display: block;         /* garante que o svg apareça */
+  stroke: rgb(12, 12, 12);            /* cor do carrinho */
+}
+
+.header nav a:hover svg {
+  stroke: #ff9800;        /* muda a cor no hover */
+}
+
 
 
 
@@ -57,4 +175,39 @@ main {
     height: auto; 
     display: block;
 }
+
+.footer {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    background-color: #334455;  /* cor padrão do footer */
+    color: white;
+    position: relative;
+    bottom: 0;
+}
+
+.footer .contatos {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* espaço entre os ícones */
+}
+
+.footer .contatos a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer .contatos a svg {
+    stroke: white; /* ícones brancos */
+    width: 27px;
+    height: 27px;
+    display: block;
+}
+
+.footer .contatos a:hover svg {
+    stroke: #ff9800; /* muda de cor no hover */
+}
+
 

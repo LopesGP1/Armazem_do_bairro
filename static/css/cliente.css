@@ -1,6 +1,6 @@
 html, body {
     margin: 0;
-    padding: 0;
+    
     width: 100%;
     height: 100%;
     font-family: Arial, sans-serif;
@@ -20,3 +20,71 @@ html, body {
     margin-bottom: 50px;
     text-align: center;
 }
+
+.hero {
+  height: 50vh; /* ocupa a altura inteira da tela */
+  width: 100vw;  /* ocupa a largura inteira da tela */
+  margin: 0;     /* remove qualquer espaço em volta */
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background-color: #7dbff8;
+
+  color: white;
+}
+
+.hero-content {
+  max-width: 700px; /* o texto não fica esticado demais */
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.btn-comprar {
+  padding: 12px 25px;
+  font-size: 1rem;
+  background-color: #ff9800;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn-comprar:hover {
+  background-color: #e68900;
+}
+
+.produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 40px; /* espaço abaixo da hero */
+}
+
+.produto-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+

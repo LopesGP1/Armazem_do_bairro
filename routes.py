@@ -3,7 +3,19 @@ from flask import Flask,render_template
 app = Flask(__name__)
 
 
+
+
+@app.route('/cliente')
+def cliente():
+    produtos = [
+        {"nome": "Arroz Integral", "preco": 12.50, "categoria": "kg", "quantidade": 1, "img": "arroz.jpg"},
+        {"nome": "Leite Integral", "preco": 4.20, "categoria": "L", "quantidade": 0.5, "img": "leite.jpg"},
+        {"nome": "Feijão Preto", "preco": 15.00, "categoria": "kg", "quantidade": 2, "img": "feijao.jpg"}
+    ]
+    return render_template('cliente.html', produtos=produtos)
+
 def init_routes(app):
+    
     # Home
     @app.route('/')
     def home():
