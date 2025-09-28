@@ -6,5 +6,6 @@ def get_connection():
         host="localhost",
         user="root",
         password="65323310",
-        database="armazem"
+        database="armazem",
+        port = "3306"
     )

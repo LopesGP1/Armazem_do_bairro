@@ -1,196 +1,206 @@
-html, body {
+
+
+body {
     margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     font-family: Arial, sans-serif;
-    background-color: #baebff;
 }
 
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+
+    background-color: rgba(92, 171, 218, 0.9);
+    color: white;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+}
+
+/* Título */
+.header h1 {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+/* Navegação */
+.header nav {
+    display: flex;
+    align-items: center;
+}
+
+.header nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.header nav a svg {
+    display: block;
+    stroke: rgb(12, 12, 12); /* cor padrão */
+}
+
+.header nav a:hover svg {
+    stroke: #ff9800;
+}
+
+
+.search-bar {
+    flex: 1 1 300px;
+    max-width: 500px;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+}
 .search-bar form {
     position: relative;
     width: 100%;
     max-width: 500px;
 }
+
 .search-bar input {
     width: 100%;
-    padding: 6px 40px 6px 10px; /* espaço à direita para a lupa */
+    padding: 6px 40px 6px 10px;
     border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.6);
     background-color: rgba(255, 255, 255, 0.6);
     color: white;
     font-size: 16px;
 }
+
+/* Media query para telas menores */
+@media (max-width: 768px) {
+    .search-bar {
+        max-width: 250px;  /* diminui a largura máxima */
+    }
+
+    .search-bar input {
+        font-size: 14px;   /* diminui o tamanho do texto */
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar {
+        max-width: 180px;  /* ainda menor em celulares pequenos */
+        margin: 0 10px;
+    }
+
+    .search-bar input {
+        font-size: 12px;
+        padding: 5px 35px 5px 8px;
+    }
+}
+
 .search-bar input::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
 
 .search-button {
     position: absolute;
-    right: 5px;
+    right: 10px;          /* um pouco mais afastado da borda */
     top: 50%;
     transform: translateY(-50%);
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.search-button svg {
-    display: block;
+
+main {
+    flex: 1;
+    margin-top: 40px;   /* deixa espaço pro header */
+    margin-bottom: 60px;/* deixa espaço pro footer */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.search-bar {
-    flex: 1 1 300px;       /* continua crescendo e encolhendo */
-    max-width: 500px;      /* largura máxima da barra */
-    margin: 0 20px;        /* mantém espaço entre título e ícones */
-}
-
-.search-bar input {
+/* Grid de produtos */
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
     width: 100%;
-    padding: 6px 10px;
-    border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    background-color: rgba(255, 249, 249, 0);
-    color: white;
-    font-size: 16px;
+    max-width: 1200px;
 }
 
-.search-bar input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-
-
-/* Garante que o header esteja acima de tudo */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 30px;
-
-  background-color: rgba(92, 171, 218, 0.6);
-  color: white;
-  z-index: 10000;  /* aumenta o z-index para garantir que fique acima da hero */
-  backdrop-filter: blur(6px);
-}
-
-/* Título */
-.header h1 {
-  font-size: 1.3rem;
-  margin: 0;
-}
-
-/* Navegação */
-.header nav {
-  display: flex;
-  align-items: center;
-}
-
-/* Hamburger */
-.header nav a.hamburger svg {
-    stroke: white;   /* força a cor do traço */
-    display: block;
-}
-
-/* Hover opcional */
-.header nav a.hamburger:hover svg {
-    stroke: #ff9800;
-}
-
-
-.header nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: white;
-  display: flex;          /* garante que o svg fique alinhado */
-  align-items: center;
-  transition: 0.3s;
-}
-
-.header nav a svg {
-  display: block;         /* garante que o svg apareça */
-  stroke: rgb(12, 12, 12);            /* cor do carrinho */
-}
-
-.header nav a:hover svg {
-  stroke: #ff9800;        /* muda a cor no hover */
-}
-
-
-
-
-.titulo {
-    font-size: 64px;
-    color: #0d3b66;
+/* Card de produto */
+.produto-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
     text-align: center;
-    margin: 0 0 10px 0; /* diminui espaço abaixo do título */
+    transition: transform 0.2s;
 }
 
-.subtitulo {
-    font-size: 40px;
-    color: #fff;
-    margin-bottom: 50px;
+.produto-card:hover {
+    transform: scale(1.05);
 }
 
-
-main {
-    position: relative;
-    z-index: 1;          /* fica acima da onda */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100vh;       /* toda a tela */
-    padding-top: 50px;
+.produto-card img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-
-
-main {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100vh;
-    padding-top: 50px;
+.produto-card h2 {
+    font-size: 1.1rem;
+    margin: 10px 0;
 }
 
-.imagem-casa {
-    margin: 5px 0 20px 0;  
+.produto-card .preco {
+    font-size: 1rem;
+    color: #0d3b66;
+    font-weight: bold;
+    margin: 5px 0 10px 0;
 }
 
-.imagem-casa img {
-    width: 400px;    
-    height: auto; 
-    display: block;
+.produto-card button {
+    background: #0d3b66;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
+
+.produto-card button:hover {
+    background: #ff9800;
+}
+
 
 .footer {
-    width: 100%;
-    padding: 20px 0;
-    text-align: center;
-    background-color: #334455;  /* cor padrão do footer */
+    background-color: #334455;
     color: white;
-    position: relative;
-    bottom: 0;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
 }
 
 .footer .contatos {
     margin-top: 10px;
     display: flex;
     justify-content: center;
-    gap: 15px; /* espaço entre os ícones */
+    gap: 15px;
 }
 
 .footer .contatos a {
@@ -200,14 +210,13 @@ main {
 }
 
 .footer .contatos a svg {
-    stroke: white; /* ícones brancos */
+    stroke: white;
     width: 27px;
     height: 27px;
     display: block;
 }
 
 .footer .contatos a:hover svg {
-    stroke: #ff9800; /* muda de cor no hover */
+    stroke: #ff9800;
 }
-
 

@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block title %}Cliente{% endblock %}
+
 {% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/cliente.css') }}">
 {% endblock %}
 
@@ -9,14 +11,13 @@
 <section class="hero">
     <div class="hero-content">
         <h2 class="titulo">Armazém do Bairro</h2>
-        <p class="subtitulo">Seu supermercado de confiança no bairro. Produtos frescos, <br> preços justos e atendimento
-            de qualidade para toda <br> a família.</p>
+        <p class="subtitulo">
+            Seu supermercado de confiança no bairro. Produtos frescos, <br>
+            preços justos e atendimento de qualidade para toda <br>
+            a família.
+        </p>
     </div>
-
 </section>
 
 {% include 'produto.html' %}
-
-
-
 {% endblock %}

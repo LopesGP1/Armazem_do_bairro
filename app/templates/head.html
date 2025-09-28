@@ -1,5 +1,19 @@
 <!-- templates/head.html -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{% block title %}Armazém do Bairro {% endblock %}</title>
+
+<title>{% block title %}Armazém do Bairro{% endblock %}</title>
+
+<!-- CSS Base: header, footer, cores, fontes e layout geral -->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<!-- CSS específico de cada página -->
+{% block extra_css %}{% endblock %}
+
+<!-- Favicon (opcional) -->
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
+
+<!-- Fonts externas (opcional) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
