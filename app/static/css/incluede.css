@@ -1,0 +1,143 @@
+
+.footer {
+    background-color: #334455;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.footer .contatos {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer .contatos a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer .contatos a svg {
+    stroke: white;
+    width: 27px;
+    height: 27px;
+    display: block;
+}
+
+.footer .contatos a:hover svg {
+    stroke: #ff9800;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+
+    background-color: rgba(92, 171, 218, 0.9);
+    color: white;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+}
+
+/* Título */
+.header h1 {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+/* Navegação */
+.header nav {
+    display: flex;
+    align-items: center;
+}
+
+.header nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.header nav a svg {
+    display: block;
+    stroke: rgb(12, 12, 12); /* cor padrão */
+}
+
+.header nav a:hover svg {
+    stroke: #ff9800;
+}
+
+
+.search-bar {
+    flex: 1 1 300px;
+    max-width: 500px;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+}
+.search-bar form {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 6px 40px 6px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.6);
+    color: white;
+    font-size: 16px;
+}
+
+/* Media query para telas menores */
+@media (max-width: 768px) {
+    .search-bar {
+        max-width: 250px;  /* diminui a largura máxima */
+    }
+
+    .search-bar input {
+        font-size: 14px;   /* diminui o tamanho do texto */
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar {
+        max-width: 180px;  /* ainda menor em celulares pequenos */
+        margin: 0 10px;
+    }
+
+    .search-bar input {
+        font-size: 12px;
+        padding: 5px 35px 5px 8px;
+    }
+}
+
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;          /* um pouco mais afastado da borda */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
