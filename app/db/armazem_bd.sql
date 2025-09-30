@@ -1,6 +1,31 @@
 create database armazem_bd;
 USE armazem_bd;
 
+
+CREATE TABLE usuario (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome_completo VARCHAR(150) NOT NULL,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    tipo_usuario ENUM('cliente','gerente','funcionario','admin') NOT NULL 
+);
+
+CREATE TABLE carteira (
+    id_carteira INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    saldo DECIMAL(10,2) DEFAULT 0,
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+);
+CREATE TABLE transacao_carteira (
+    id_transacao INT AUTO_INCREMENT PRIMARY KEY,
+    id_carteira INT NOT NULL,
+    valor DECIMAL(10,2) NOT NULL,
+    tipo ENUM('entrada','saida') NOT NULL,
+    descricao VARCHAR(255),
+    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_carteira) REFERENCES carteira(id_carteira)
+);
+
 -- ==========================================
 -- Criação da tabela de categorias
 -- ==========================================
@@ -27,6 +52,41 @@ CREATE TABLE IF NOT EXISTS produto (
     FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
 );
 
+CREATE TABLE carrinho (
+    id_carrinho INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('aberto','finalizado','cancelado') DEFAULT 'aberto',
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+);
+
+CREATE TABLE item_carrinho (
+    id_item INT AUTO_INCREMENT PRIMARY KEY,
+    id_carrinho INT NOT NULL,
+    id_produto INT NOT NULL,
+    quantidade DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (id_carrinho) REFERENCES carrinho(id_carrinho),
+    FOREIGN KEY (id_produto) REFERENCES produto(id_produto)
+);
+
+CREATE TABLE pedido (
+    id_pedido INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    valor_total DECIMAL(10,2) NOT NULL,
+    status ENUM('pendente','pago','enviado','cancelado') DEFAULT 'pendente',
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+);
+
+CREATE TABLE item_pedido (
+    id_item INT AUTO_INCREMENT PRIMARY KEY,
+    id_pedido INT NOT NULL,
+    id_produto INT NOT NULL,
+    quantidade DECIMAL(10,2) NOT NULL,
+    preco_unitario DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido),
+    FOREIGN KEY (id_produto) REFERENCES produto(id_produto)
+);
 
 -- ==========================================
 -- Inserção de categorias

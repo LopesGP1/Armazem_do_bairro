@@ -1,4 +1,5 @@
 from flask import render_template
+from app.models.produto import Produto
 
 def init_routes(app):
     # Home
@@ -8,6 +9,7 @@ def init_routes(app):
     #carrinho
     @app.route('/carrinho')
     def carrinho():
+        
         produtos = [
             {"nome": "Arroz Integral", "preco": 12.50, "categoria": "kg", "quantidade": 1, "img": "arroz.jpg"},
             {"nome": "Feijão Preto", "preco": 9.80, "categoria": "kg", "quantidade": 1, "img": "feijao.jpg"},
@@ -69,3 +71,9 @@ def init_routes(app):
     @app.route('/gerente')
     def gerente():
         return render_template('gerente.html')
+    @app.route("/produtos")
+    def lista_produtos():
+        produtos = Produto.listar_todos()  # retorna lista de dicionários
+        # se quiser incluir categoria:
+        # para cada produto, você pode buscar o nome da categoria ou fazer JOIN no SQL
+        return render_template("produtos.html", produtos=produtos)
