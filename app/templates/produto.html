@@ -1,15 +1,13 @@
 <main class="produtos">
     {% for p in produtos %}
-    <div class="produto-card">
-        <!-- se você tiver a categoria disponível -->
-        {% if p.categoria_nome %}
-        <div class="categoria">{{ p.categoria_nome }}</div>
-        {% endif %}
-        <img src="{{ url_for('static', filename='img/produtos/' + (p.imagem or 'sem-imagem.png')) }}" alt="{{ p.nome }}">
-
-        <h2>{{ p.nome }}</h2>
-        <p class="preco">R$ {{ "%.2f"|format(p.preco_unitario) }}</p>
-        <button class="add-carrinho">Adicionar</button>
-    </div>
+    <div class="produto-card" data-id="{{ p.id_produto }}">
+    {% if p.categoria_nome %}
+    <div class="categoria">{{ p.categoria_nome }}</div>
+    {% endif %}
+    <img src="/{{ p.imagem }}" alt="{{ p.nome }}">
+    <h2>{{ p.nome }}</h2>
+    <p class="preco">R$ {{ "%.2f"|format(p['preco_unitario']) }}</p>
+    <button class="add-carrinho">Adicionar</button>
+</div>
     {% endfor %}
 </main>

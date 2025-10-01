@@ -120,11 +120,11 @@ hr {
 
 
 .search-bar {
-    flex: 1 1 300px;
-    max-width: 500px;
-    margin: 0 20px;
-    display: flex;
-    align-items: center;
+    flex: 1; 
+    min-width: 120px;                /* nunca menor que isso */
+    max-width: clamp(200px, 40vw, 450px);  
+    /* 200px mínimo, 40% da tela normal, 450px máximo */
+    margin: 0 15px;
 }
 .search-bar form {
     position: relative;

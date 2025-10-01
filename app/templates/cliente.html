@@ -20,4 +20,22 @@
 </section>
 
 {% include 'produto.html' %}
+<script src="{{ url_for('static', filename='js/busca-produtos.js') }}"></script>
+
+<!-- Overlay do pop-up -->
+<div id="overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+    background: rgba(0,0,0,0.5); z-index:1000;"></div>
+
+<!-- Pop-up -->
+<div id="popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);
+    background:white; padding:20px; border-radius:8px; z-index:1001; min-width:250px; text-align:center;">
+    <h3 id="popup-nome">Produto</h3>
+    <p>Preço unitário: R$ <span id="popup-preco">0.00</span></p>
+    <label for="quantidade">Quantidade:</label>
+    <input type="number" id="quantidade" min="1" value="1" style="width:60px; margin: 10px 0;">
+    <p>Total: R$ <span id="popup-total">0.00</span></p>
+    <button id="cancelar">Cancelar</button>
+    <button id="confirmar">Confirmar</button>
+</div>
+
 {% endblock %}
