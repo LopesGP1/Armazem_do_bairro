@@ -1,4 +1,13 @@
-
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* altura mínima da tela */
+    margin: 0;
+}
+/* Faz o main crescer para ocupar o espaço restante */
+main {
+    flex: 1;
+}
 .footer {
     background-color: #0c0075;
     color: #fff;

@@ -134,3 +134,95 @@ main.produtos {
 .add-carrinho:hover {
     background-color: #218838;
 }
+/* Overlay */
+#overlay {
+    display: none; /* inicializa escondido */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+/* Pop-up */
+#popup {
+    display: none; /* inicializa escondido */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 25px 30px;
+    border-radius: 10px;
+    z-index: 1001;
+    min-width: 300px;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    animation: popupAppear 0.3s ease;
+}
+
+/* Título e informações do pop-up */
+#popup h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#popup p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #555;
+}
+
+#popup input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Botões */
+#popup button {
+    padding: 8px 15px;
+    margin: 10px 5px 0 5px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#popup #confirmar {
+    background-color: #28a745;
+    color: white;
+}
+
+#popup #confirmar:hover {
+    background-color: #218838;
+}
+
+#popup #cancelar {
+    background-color: #dc3545;
+    color: white;
+}
+
+#popup #cancelar:hover {
+    background-color: #c82333;
+}
+
+/* Animação do pop-up */
+@keyframes popupAppear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}

@@ -10,7 +10,7 @@
 <div class="carrinho-header">
     <a href="/cliente" class="btn-voltar">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         Continuar Comprando
     </a>
@@ -34,9 +34,10 @@
 
         <div class="produto-lista">
             {% for produto in produtos %}
-            <div class="colunas-conteudo">
+            <div class="colunas-conteudo" data-id="{{ produto.id_produto }}">
                 <div class="produto-info">
-                    <img src="{{ url_for('static', filename='img/produtos/' ~ produto.img) }}" alt="{{ produto.nome }}">
+                    <img src="{{ url_for('static', filename='img/produtos/' ~ produto.imagem.split('/')[-1]) }}"
+                        alt="{{ produto.nome }}">
                     <span>{{ produto.nome }}</span>
                 </div>
                 <div>{{ produto.categoria }}</div>
@@ -45,7 +46,7 @@
                     <span class="qtd">{{ produto.quantidade }}</span>
                     <button class="aumentar">+</button>
                 </div>
-                <div>R$ {{ '%.2f'|format(produto.preco) }}</div>
+                <div class="preco">R$ {{ '%.2f'|format(produto.preco_unitario) }}</div>
                 <div class="remover">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="red" width="24" height="24" viewBox="0 0 24 24">
                         <path d="M3 6h18v2H3V6zm2 3h14v12H5V9zm3 3v6h2v-6H8zm4 0v6h2v-6h-2z" />
@@ -53,6 +54,7 @@
                 </div>
             </div>
             {% endfor %}
+
         </div>
     </section>
 
@@ -67,4 +69,12 @@
         <button id="limpar">Limpar Carrinho</button>
     </section>
 </main>
+<div id="aviso-popup" style="display:none; position:fixed; top:50%; left:50%; 
+    transform:translate(-50%, -50%);
+    background:white; padding:20px; border-radius:8px; z-index:1001; min-width:250px; text-align:center; box-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+    <p>Opção em desenvolvimento!</p>
+    <button id="fechar-aviso">Fechar</button>
+</div>
+<script src="{{ url_for('static', filename='js/carrinho.js') }}"></script>
+
 {% endblock %}

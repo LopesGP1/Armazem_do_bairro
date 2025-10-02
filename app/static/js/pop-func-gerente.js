@@ -10,22 +10,17 @@ function abrirPopupGlobal() {
 }
 
 // Função para fechar o pop-up
-function fecharPopup() {
+fecharPopupGlobal.addEventListener('click', () => {
     popupGlobal.style.display = 'none';
     overlayGlobal.style.display = 'none';
-}
+});
 
-// Evento do botão fechar
-fecharPopupGlobal.addEventListener('click', fecharPopup);
-
-// Fechar se clicar no overlay
-overlayGlobal.addEventListener('click', fecharPopup);
-
-// Adicionar evento aos botões Funcionário e Gerente
+// Adicionar evento nos botões de Funcionário e Gerente
 document.querySelectorAll('.botoes .botao').forEach((btn) => {
+    // Só para Funcionário e Gerente
     if (btn.innerText.includes('Funcionário') || btn.innerText.includes('Gerente')) {
         btn.addEventListener('click', (e) => {
-            e.preventDefault(); // Impede redirecionamento
+            e.preventDefault(); // impede o redirecionamento
             abrirPopupGlobal();
         });
     }

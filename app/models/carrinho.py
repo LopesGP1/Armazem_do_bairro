@@ -95,3 +95,28 @@ class Carrinho:
         finally:
             cursor.close()
             conn.close()
+    @staticmethod
+    def adicionar_item_sessao(session, produto_id, quantidade=1):
+
+        """Gerencia carrinho temporário na sessão"""
+        if 'carrinho' not in session:
+            session['carrinho'] = []
+
+        for item in session['carrinho']:
+            if item['produto_id'] == produto_id:
+                item['quantidade'] += quantidade
+                break
+        else:
+            session['carrinho'].append({
+                "produto_id": produto_id,
+                "quantidade": quantidade
+            })
+
+        session.modified = True
+
+    @staticmethod
+    def remover_item_sessao(session, produto_id):
+        carrinho = session.get('carrinho', [])
+        carrinho = [item for item in carrinho if item['produto_id'] != produto_id]
+        session['carrinho'] = carrinho
+        session.modified = True

@@ -76,3 +76,20 @@ main {
 
 
 
+#aviso-popup-global {
+    text-align: center;
+}
+
+#aviso-popup-global button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#aviso-popup-global button:hover {
+    background-color: #218838;
+}
